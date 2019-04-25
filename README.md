@@ -27,18 +27,40 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### Tooling Commands
+* `npm run lint` - Used to find various static code analyzing errors such as unused variables. Can be customized in the `.eslintrc.json` file see [here](https://eslint.org/docs/user-guide/configuring) for configuration
+* `npm run lint-fix` - Used to find and **fix** various static code analyzing errors such as unused variables, that it is able to fix without altering code structure or flow.
+* `npm run pretty` - Styles the code into a consistent look and feel. Can be customized in the `.prettierrc` file see [here](https://prettier.io/docs/en/configuration.html) for configuration.
+* `npm run lint-pretty` - Run both `lint-fix` and `pretty`.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Libraries
+### Styling
+* [Emotion](https://github.com/emotion-js/emotion) - used to embed class-like styling directly into a class created at compile time. Example:
+```js
+const styledComp = (props) => (
+	<div
+		className={css`
+			color: red;
+			padding: ${props.padding}
+		`}>
+			Text
+	</diov>
+);
+```
+* [Styled Systems](https://github.com/styled-system/styled-system) - used to give components props that directly map to styling. There is a built in scaling for various props see [Scaling](https://styled-system.com/theme-specification#scale-objects)
+```js
+const styledComp = (props) => (
+	<div
+		width={1/2}
+		height="32px"
+		pl="1"
+		>
+			Text
+	</diov>
+);
+```
+### Tooling
+Tooling enables consistent look and feel for code reducing commit noise to only the relevant changes and not stylistic or new-line swapping. Commands exists to lint `lint`, auto fix lint issues `lint-fix`, and style `pretty` the code independently of each other, or there is a joint command `lint-pretty` that will lint, fix, and style in 1 pass
+* [eslint](https://eslint.org/) - used to spot common errors
+* [prettier](https://prettier.io/) - used to create a consistent look and feel to code
+* [editorconfig](https://editorconfig.org/) - used to ensure consistent editor styling
