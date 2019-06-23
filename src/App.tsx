@@ -3,12 +3,13 @@ import logo from "./logo.svg";
 import "./App.css";
 
 import Row from "./layout/flexRow";
+import Inline from "./layout/inline";
 
 const App: React.FC = () => {
 	return (
 		<div className="App">
 			<header className="App-header">
-				<Row width="100%">
+				<Row width="100%" mb="4">
 					<Row flex="2" bg="pink">
 						<img src={logo} className="App-logo" alt="logo" />
 					</Row>
@@ -17,13 +18,13 @@ const App: React.FC = () => {
 					</Row>
 					<Row flex={1 / 2}>Half Size</Row>
 				</Row>
-				<Row>
-					<p>
+				<Row mb="5">
+					<Inline color="blue">
 						Edit <code>src/App.tsx</code> and save to reload.
-					</p>
+					</Inline>
 				</Row>
 				<Row color="pink">
-					Click here
+					<Inline mr="3">Click here</Inline>
 					<a
 						className="App-link"
 						href="https://reactjs.org"
